@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .errors {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    Address Book
+    <h1>Your Contact Information</h1>
+    <form
+      action="#"
+      data-th-action="@{/contact}"
+      data-th-object="${contact}"
+      method="post"
+    >
+      <p>
+        Name: <input type="text" data-th-field="*{name}" />
+        <span
+          data-th-if="${#fields.hasErrors('name')}"
+          data-th-errors="*{name}"
+          class="errors"
+        ></span>
+      </p>
+      <p>
+        Email: <input type="email" data-th-field="*{email}" />
+        <span
+          data-th-if="${#fields.hasErrors('email')}"
+          data-th-errors="*{email}"
+          class="errors"
+        ></span>
+      </p>
+      <p>
+        Phone Number: <input type="text" data-th-field="*{phoneNumber}" />
+        <span
+          data-th-if="${#fields.hasErrors('phoneNumber')}"
+          data-th-errors="*{phoneNumber}"
+          class="errors"
+        ></span>
+      </p>
+      <p>
+        Date of Birth: <input type="date" data-th-field="*{dateOfBirth}" />
+        <span
+          data-th-if="${#fields.hasErrors('dateOfBirth')}"
+          data-th-errors="*{dateOfBirth}"
+          class="errors"
+        ></span>
+      </p>
+      <br />
+      <p>
+        <button type="submit" value="Save">Save</button>
+      </p>
+    </form>
+  </body>
+</html>
